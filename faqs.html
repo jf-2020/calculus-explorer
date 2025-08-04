@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQs - Calculus Explorer</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons for hamburger menu -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css" rel="stylesheet">
+    <!-- MathJax for mathematical expressions -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']],
+                processEscapes: true,
+                processEnvironments: true
+            },
+            options: {
+                skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+                ignoreHtmlClass: 'tex2jax_ignore',
+                processHtmlClass: 'tex2jax_process'
+            }
+        };
+    </script>
+    <!-- Custom styles -->
+    <link href="assets/css/styles.css" rel="stylesheet">
+    <!-- Math Interface styles -->
+    <link href="assets/css/math-interface.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg">
+        <div class="container-fluid">
+            <!-- Logo/Home button on the left -->
+            <a class="navbar-brand" href="index.html">
+                <i class="bi bi-house-fill me-2"></i>Calculus Explorer
+            </a>
+            
+            <!-- Hamburger dropdown on the right -->
+            <div class="dropdown ms-auto">
+                <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <i class="bi bi-list" style="font-size: 1.5rem;"></i>
+                </button>
+                <ul class="dropdown-menu dropdown-menu-end">
+                    <li><a class="dropdown-item" href="faqs.html">FAQs</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main content area -->
+    <main class="main-content">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-10">
+                    <!-- Header Section -->
+                    <div class="text-center mb-5 mt-5">
+                        <h1 class="display-4 text-primary mb-3">
+                            <i class="bi bi-question-circle me-3"></i>Frequently Asked Questions
+                        </h1>
+                        <p class="lead text-muted">Everything you need to know about using Calculus Explorer</p>
+                    </div>
+
+                    <!-- FAQ Accordion -->
+                    <div class="accordion" id="faqAccordion">
+                        
+                        <!-- Getting Started -->
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faq1" aria-expanded="true">
+                                    <i class="bi bi-rocket me-2"></i>How do I get started with Calculus Explorer?
+                                </button>
+                            </h2>
+                            <div id="faq1" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    <p>Getting started is simple:</p>
+                                    <ol>
+                                        <li><strong>Enter a function</strong> in the input field (e.g., <code>x^2</code>, <code>sin(x)</code>, <code>x*e^x</code>)</li>
+                                        <li><strong>Click "Analyze Function"</strong> to get technique recommendations</li>
+                                        <li><strong>Use hints</strong> if you need guidance on the integration process</li>
+                                        <li><strong>Enter your answer</strong> and click "Check Answer" for instant feedback</li>
+                                        <li><strong>View the graph</strong> on the right side to visualize the function</li>
+                                    </ol>
+                                    <p>No installation required - just open the page and start learning!</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Input Format -->
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2">
+                                    <i class="bi bi-keyboard me-2"></i>What format should I use to enter functions?
+                                </button>
+                            </h2>
+                            <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    <p>Calculus Explorer accepts various mathematical notation formats:</p>
+                                    <div class="table-responsive">
+                                        <table class="table table-striped">
+                                            <thead>
+                                                <tr>
+                                                    <th>Type</th>
+                                                    <th>Examples</th>
+                                                    <th>Notes</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td><strong>Powers</strong></td>
+                                                    <td><code>x^2</code>, <code>x^3</code>, <code>x^(-1)</code></td>
+                                                    <td>Use ^ for exponents</td>
+                                                </tr>
+                                                <tr>
+                                                    <td><strong>Functions</strong></td>
+                                                    <td><code>sin(x)</code>, <code>cos(x)</code>, <code>ln(x)</code>, <code>e^x</code></td>
+                                                    <td>Standard function names</td>
+                                                </tr>
+                                                <tr>
+                                                    <td><strong>Products</strong></td>
+                                                    <td><code>x*sin(x)</code>, <code>2*x^3</code>, <code>x*e^x</code></td>
+                                                    <td>Use * for multiplication</td>
+                                                </tr>
+                                                <tr>
+                                                    <td><strong>Fractions</strong></td>
+                                                    <td><code>1/x</code>, <code>x/(x^2+1)</code>, <code>(x+1)/(x-1)</code></td>
+                                                    <td>Use / for division</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Integration Techniques -->
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq3">
+                                    <i class="bi bi-gear me-2"></i>What integration techniques does Calculus Explorer support?
+                                </button>
+                            </h2>
+                            <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    <p>Our platform supports five major integration techniques:</p>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="card mb-3">
+                                                <div class="card-header bg-success text-white">
+                                                    <h6 class="mb-0"><i class="bi bi-star me-1"></i>Power Rule (Easy)</h6>
+                                                </div>
+                                                <div class="card-body">
+                                                    <p><strong>Formula:</strong> $\int x^n dx = \frac{x^{n+1}}{n+1} + C$</p>
+                                                    <p><strong>Examples:</strong> <code>x^2</code>, <code>3x^4</code>, <code>x^(-2)</code></p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="card mb-3">
+                                                <div class="card-header bg-info text-white">
+                                                    <h6 class="mb-0"><i class="bi bi-stars me-1"></i>Trigonometric (Medium)</h6>
+                                                </div>
+                                                <div class="card-body">
+                                                    <p><strong>Functions:</strong> sin, cos, tan, sec, etc.</p>
+                                                    <p><strong>Examples:</strong> <code>sin(x)</code>, <code>cos(2x)</code>, <code>tan(x)</code></p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="card mb-3">
+                                                <div class="card-header bg-warning text-white">
+                                                    <h6 class="mb-0"><i class="bi bi-arrow-repeat me-1"></i>U-Substitution (Medium)</h6>
+                                                </div>
+                                                <div class="card-body">
+                                                    <p><strong>Pattern:</strong> Functions with $f(g(x)) \cdot g'(x)$</p>
+                                                    <p><strong>Examples:</strong> <code>2x/(x^2+1)</code>, <code>x*e^(x^2)</code></p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="card mb-3">
+                                                <div class="card-header bg-danger text-white">
+                                                    <h6 class="mb-0"><i class="bi bi-puzzle me-1"></i>Integration by Parts (Hard)</h6>
+                                                </div>
+                                                <div class="card-body">
+                                                    <p><strong>Formula:</strong> $\int u \, dv = uv - \int v \, du$</p>
+                                                    <p><strong>Examples:</strong> <code>x*e^x</code>, <code>x*sin(x)</code>, <code>ln(x)</code></p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-12">
+                                            <div class="card mb-3">
+                                                <div class="card-header bg-secondary text-white">
+                                                    <h6 class="mb-0"><i class="bi bi-fraction me-1"></i>Partial Fractions (Hard)</h6>
+                                                </div>
+                                                <div class="card-body">
+                                                    <p><strong>Method:</strong> Decomposition of rational functions $\frac{P(x)}{Q(x)}$</p>
+                                                    <p><strong>Examples:</strong> <code>(x+1)/(x^2-1)</code>, <code>1/(x^2+x-2)</code></p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Hint System -->
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq4">
+                                    <i class="bi bi-lightbulb me-2"></i>How does the hint system work?
+                                </button>
+                            </h2>
+                            <div id="faq4" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    <p>Our smart hint system provides <strong>progressive guidance</strong> without giving away the answer:</p>
+                                    <div class="alert alert-info">
+                                        <h6><i class="bi bi-info-circle me-1"></i>Example: Power Rule Hints</h6>
+                                        <ol>
+                                            <li><strong>Identify the Pattern:</strong> "Look at each term in your polynomial. What power of x does each term have?"</li>
+                                            <li><strong>Power Rule Formula:</strong> "Remember: ∫x^n dx = x^(n+1)/(n+1) + C, where n ≠ -1"</li>
+                                            <li><strong>Don't Forget:</strong> "Always add the constant of integration (+C) at the end!"</li>
+                                        </ol>
+                                    </div>
+                                    <p><strong>Key Features:</strong></p>
+                                    <ul>
+                                        <li>📚 <strong>Educational Questions:</strong> Guides your thinking process</li>
+                                        <li>🎯 <strong>Technique-Specific:</strong> Tailored to the integration method</li>
+                                        <li>📈 <strong>Progressive:</strong> Reveals information gradually</li>
+                                        <li>🤔 <strong>Socratic Method:</strong> Encourages discovery learning</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Answer Validation -->
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq5">
+                                    <i class="bi bi-check-circle me-2"></i>How does answer validation work?
+                                </button>
+                            </h2>
+                            <div id="faq5" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    <p>Our comprehensive validation system provides four types of feedback:</p>
+                                    <div class="table-responsive">
+                                        <table class="table table-bordered">
+                                            <thead class="table-light">
+                                                <tr>
+                                                    <th>Type</th>
+                                                    <th>Icon</th>
+                                                    <th>Description</th>
+                                                    <th>Example Feedback</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr class="table-success">
+                                                    <td><strong>Exact Match</strong></td>
+                                                    <td><i class="bi bi-check-circle-fill text-success"></i></td>
+                                                    <td>Perfect answer</td>
+                                                    <td>"Perfect! Your answer is exactly correct."</td>
+                                                </tr>
+                                                <tr class="table-info">
+                                                    <td><strong>Equivalent</strong></td>
+                                                    <td><i class="bi bi-arrow-repeat text-info"></i></td>
+                                                    <td>Mathematically same</td>
+                                                    <td>"Correct! Your answer is mathematically equivalent."</td>
+                                                </tr>
+                                                <tr class="table-warning">
+                                                    <td><strong>Partial Credit</strong></td>
+                                                    <td><i class="bi bi-exclamation-triangle text-warning"></i></td>
+                                                    <td>Close with issues</td>
+                                                    <td>"Almost! Don't forget the constant of integration (+C)."</td>
+                                                </tr>
+                                                <tr class="table-danger">
+                                                    <td><strong>Incorrect</strong></td>
+                                                    <td><i class="bi bi-x-circle text-danger"></i></td>
+                                                    <td>Wrong answer</td>
+                                                    <td>"Not quite right. Check your work and try again!"</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <p><strong>Smart Error Detection:</strong></p>
+                                    <ul>
+                                        <li>🔍 Missing constant of integration (+C)</li>
+                                        <li>➕➖ Sign errors (positive/negative mistakes)</li>
+                                        <li>🔢 Coefficient issues (wrong numerical factors)</li>
+                                        <li>📝 Different but equivalent expression formats</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Graphing Tool -->
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq6">
+                                    <i class="bi bi-graph-up me-2"></i>How do I use the Desmos graphing tool?
+                                </button>
+                            </h2>
+                            <div id="faq6" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    <p>The <strong>Desmos Graphing Calculator</strong> on the right side helps you visualize functions and their integrals:</p>
+                                    
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <h6><i class="bi bi-play me-1"></i>Basic Usage:</h6>
+                                            <ul>
+                                                <li>📊 <strong>Auto-graphs:</strong> Functions appear automatically when entered</li>
+                                                <li>🔍 <strong>Zoom:</strong> Use mouse wheel or pinch gestures</li>
+                                                <li>📱 <strong>Pan:</strong> Click and drag to move around</li>
+                                                <li>🎯 <strong>Trace:</strong> Click on curves to see coordinates</li>
+                                            </ul>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <h6><i class="bi bi-tools me-1"></i>Advanced Features:</h6>
+                                            <ul>
+                                                <li>📈 <strong>Multiple functions:</strong> Graph original and integrated functions</li>
+                                                <li>🎨 <strong>Color coding:</strong> Different colors for different functions</li>
+                                                <li>📐 <strong>Grid lines:</strong> Toggle for better precision</li>
+                                                <li>📏 <strong>Axes labels:</strong> Clear x and y axis markings</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="alert alert-success mt-3">
+                                        <h6><i class="bi bi-lightbulb me-1"></i>Pro Tip:</h6>
+                                        <p class="mb-0">Use the graph to check your integration visually! The derivative of your answer should match the original function.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Difficulty Levels -->
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq7">
+                                    <i class="bi bi-bar-chart-steps me-2"></i>What functions should I try based on my skill level?
+                                </button>
+                            </h2>
+                            <div id="faq7" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    <p>Here are recommended functions organized by difficulty level:</p>
+                                    
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <div class="card border-success">
+                                                <div class="card-header bg-success text-white">
+                                                    <h6 class="mb-0"><i class="bi bi-star me-1"></i>Beginner (Easy)</h6>
+                                                </div>
+                                                <div class="card-body">
+                                                    <p><strong>Power Rule:</strong></p>
+                                                    <ul class="list-unstyled">
+                                                        <li>📝 <code>x^2</code></li>
+                                                        <li>📝 <code>x^3</code></li>
+                                                        <li>📝 <code>3x^2</code></li>
+                                                        <li>📝 <code>x^4 + 2x</code></li>
+                                                    </ul>
+                                                    <p><strong>Basic Trig:</strong></p>
+                                                    <ul class="list-unstyled">
+                                                        <li>📝 <code>sin(x)</code></li>
+                                                        <li>📝 <code>cos(x)</code></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="card border-warning">
+                                                <div class="card-header bg-warning text-white">
+                                                    <h6 class="mb-0"><i class="bi bi-stars me-1"></i>Intermediate (Medium)</h6>
+                                                </div>
+                                                <div class="card-body">
+                                                    <p><strong>U-Substitution:</strong></p>
+                                                    <ul class="list-unstyled">
+                                                        <li>📝 <code>2x/(x^2 + 1)</code></li>
+                                                        <li>📝 <code>x*e^(x^2)</code></li>
+                                                        <li>📝 <code>sin(x)*cos(x)</code></li>
+                                                    </ul>
+                                                    <p><strong>Trig Functions:</strong></p>
+                                                    <ul class="list-unstyled">
+                                                        <li>📝 <code>tan(x)</code></li>
+                                                        <li>📝 <code>sec^2(x)</code></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="card border-danger">
+                                                <div class="card-header bg-danger text-white">
+                                                    <h6 class="mb-0"><i class="bi bi-lightning me-1"></i>Advanced (Hard)</h6>
+                                                </div>
+                                                <div class="card-body">
+                                                    <p><strong>Integration by Parts:</strong></p>
+                                                    <ul class="list-unstyled">
+                                                        <li>📝 <code>x*e^x</code></li>
+                                                        <li>📝 <code>x*sin(x)</code></li>
+                                                        <li>📝 <code>ln(x)</code></li>
+                                                    </ul>
+                                                    <p><strong>Partial Fractions:</strong></p>
+                                                    <ul class="list-unstyled">
+                                                        <li>📝 <code>(x+1)/(x^2-1)</code></li>
+                                                        <li>📝 <code>1/(x^2+x-2)</code></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Troubleshooting -->
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq8">
+                                    <i class="bi bi-wrench me-2"></i>I'm having technical issues. What should I do?
+                                </button>
+                            </h2>
+                            <div id="faq8" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    <p>Here are solutions to common technical issues:</p>
+                                    
+                                    <div class="accordion" id="troubleshootingAccordion">
+                                        <div class="accordion-item">
+                                            <h6 class="accordion-header">
+                                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#trouble1">
+                                                    Math expressions not displaying correctly
+                                                </button>
+                                            </h6>
+                                            <div id="trouble1" class="accordion-collapse collapse" data-bs-parent="#troubleshootingAccordion">
+                                                <div class="accordion-body">
+                                                    <ul>
+                                                        <li>✅ Ensure you have a stable internet connection (MathJax loads from CDN)</li>
+                                                        <li>🔄 Refresh the page to reload MathJax</li>
+                                                        <li>🌐 Try a different browser (Chrome, Firefox, Safari, Edge recommended)</li>
+                                                        <li>🚫 Disable browser extensions that might block scripts</li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="accordion-item">
+                                            <h6 class="accordion-header">
+                                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#trouble2">
+                                                    Desmos graph not loading
+                                                </button>
+                                            </h6>
+                                            <div id="trouble2" class="accordion-collapse collapse" data-bs-parent="#troubleshootingAccordion">
+                                                <div class="accordion-body">
+                                                    <ul>
+                                                        <li>🌐 Check your internet connection</li>
+                                                        <li>🔄 Refresh the page</li>
+                                                        <li>🔒 Ensure JavaScript is enabled in your browser</li>
+                                                        <li>🛡️ Check if your browser blocks third-party scripts</li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="accordion-item">
+                                            <h6 class="accordion-header">
+                                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#trouble3">
+                                                    Buttons not working
+                                                </button>
+                                            </h6>
+                                            <div id="trouble3" class="accordion-collapse collapse" data-bs-parent="#troubleshootingAccordion">
+                                                <div class="accordion-body">
+                                                    <ul>
+                                                        <li>🔄 Hard refresh: Ctrl+F5 (Windows) or Cmd+Shift+R (Mac)</li>
+                                                        <li>📱 If on mobile, try desktop version</li>
+                                                        <li>🧹 Clear browser cache and cookies</li>
+                                                        <li>🔍 Open browser developer tools (F12) and check for error messages</li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="alert alert-primary mt-3">
+                                        <h6><i class="bi bi-info-circle me-1"></i>System Requirements:</h6>
+                                        <ul class="mb-0">
+                                            <li>🌐 Modern web browser (Chrome 70+, Firefox 65+, Safari 12+, Edge 79+)</li>
+                                            <li>📶 Stable internet connection</li>
+                                            <li>🔧 JavaScript enabled</li>
+                                            <li>📱 No installation required!</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Educational Benefits -->
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq9">
+                                    <i class="bi bi-mortarboard me-2"></i>How does Calculus Explorer help me learn better?
+                                </button>
+                            </h2>
+                            <div id="faq9" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    <p>Calculus Explorer uses proven educational methodologies:</p>
+                                    
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="card h-100">
+                                                <div class="card-header bg-primary text-white">
+                                                    <h6 class="mb-0"><i class="bi bi-brain me-1"></i>Cognitive Benefits</h6>
+                                                </div>
+                                                <div class="card-body">
+                                                    <ul>
+                                                        <li>🧩 <strong>Problem-Solving Skills:</strong> Step-by-step analytical thinking</li>
+                                                        <li>🔍 <strong>Pattern Recognition:</strong> Identifying integration techniques</li>
+                                                        <li>💡 <strong>Mathematical Reasoning:</strong> Understanding why methods work</li>
+                                                        <li>📊 <strong>Self-Assessment:</strong> Immediate feedback and correction</li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="card h-100">
+                                                <div class="card-header bg-success text-white">
+                                                    <h6 class="mb-0"><i class="bi bi-book me-1"></i>Learning Approach</h6>
+                                                </div>
+                                                <div class="card-body">
+                                                    <ul>
+                                                        <li>🏗️ <strong>Constructivist:</strong> Build understanding through guided discovery</li>
+                                                        <li>🎯 <strong>Adaptive:</strong> Personalized hints based on your responses</li>
+                                                        <li>👀 <strong>Multimodal:</strong> Visual, textual, and interactive learning</li>
+                                                        <li>🎮 <strong>Gamified:</strong> Progress tracking and celebration elements</li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="alert alert-info mt-3">
+                                        <h6><i class="bi bi-star me-1"></i>Research-Backed Features:</h6>
+                                        <p class="mb-0">Our platform incorporates <strong>Socratic questioning</strong>, <strong>immediate feedback loops</strong>, and <strong>visual learning</strong> - all proven to enhance mathematical understanding and retention.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Future Features -->
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq10">
+                                    <i class="bi bi-rocket-takeoff me-2"></i>What new features are coming soon?
+                                </button>
+                            </h2>
+                            <div id="faq10" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    <p>We're constantly improving Calculus Explorer! Here's what's on our roadmap:</p>
+                                    
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <h6><i class="bi bi-calendar-plus me-1"></i>Coming Soon:</h6>
+                                            <ul>
+                                                <li>📚 <strong>Problem History:</strong> Save and review past problems</li>
+                                                <li>🎚️ <strong>Difficulty Levels:</strong> Beginner, intermediate, advanced modes</li>
+                                                <li>📈 <strong>Performance Analytics:</strong> Track your learning progress</li>
+                                                <li>🎨 <strong>Custom Themes:</strong> Personalize your interface</li>
+                                            </ul>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <h6><i class="bi bi-stars me-1"></i>Future Plans:</h6>
+                                            <ul>
+                                                <li>🔧 <strong>More Techniques:</strong> Trigonometric substitution, improper integrals</li>
+                                                <li>👥 <strong>Collaborative Features:</strong> Share problems and solutions</li>
+                                                <li>📱 <strong>Mobile App:</strong> Native iOS/Android applications</li>
+                                                <li>🌐 <strong>Offline Support:</strong> Work without internet connection</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="alert alert-primary">
+                                        <h6><i class="bi bi-envelope me-1"></i>Want to Contribute?</h6>
+                                        <p class="mb-0">Have ideas for new features? Found a bug? We'd love to hear from you! This is an open-source project, and community contributions are always welcome.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <!-- Call to Action -->
+                    <div class="text-center mt-5">
+                        <div class="card bg-light">
+                            <div class="card-body">
+                                <h5 class="card-title">Ready to Start Learning?</h5>
+                                <p class="card-text">Now that you know how to use Calculus Explorer, it's time to practice your integration skills!</p>
+                                <a href="index.html" class="btn btn-primary btn-lg">
+                                    <i class="bi bi-calculator me-2"></i>Start Practicing Integration
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer d-flex align-items-center justify-content-end">
+        <div class="text-end pe-3">
+            <p class="mb-0">by MathJack, 2025</p>
+        </div>
+    </footer>
+
+    <!-- Scroll to Top Button -->
+    <button id="scrollToTopBtn" class="btn btn-primary" style="position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); z-index: 1000; border-radius: 50%; width: 50px; height: 50px; display: none; box-shadow: 0 4px 8px rgba(0,0,0,0.3);">
+        <i class="bi bi-arrow-up" style="font-size: 1.2rem;"></i>
+    </button>
+
+    <!-- Bootstrap JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Scroll to Top Button JavaScript -->
+    <script>
+        // Show/hide scroll to top button based on scroll position
+        window.addEventListener('scroll', function() {
+            const scrollToTopBtn = document.getElementById('scrollToTopBtn');
+            if (window.pageYOffset > 300) {
+                scrollToTopBtn.style.display = 'block';
+            } else {
+                scrollToTopBtn.style.display = 'none';
+            }
+        });
+
+        // Smooth scroll to top when button is clicked
+        document.getElementById('scrollToTopBtn').addEventListener('click', function() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+    </script>
+</body>
+</html>

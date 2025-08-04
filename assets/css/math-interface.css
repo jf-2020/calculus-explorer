@@ -1,0 +1,226 @@
+/* MathGPT-like Interface Styles */
+.math-interface {
+    width: 100%;
+    max-width: 600px;
+    padding: 20px;
+}
+
+.math-interface .card {
+    border: none;
+    border-radius: 15px;
+}
+
+.math-interface .card-header {
+    border-radius: 15px 15px 0 0 !important;
+    background: linear-gradient(135deg, #007bff, #0056b3) !important;
+}
+
+.math-preview {
+    background-color: #f8f9fa;
+    border: 1px solid #dee2e6;
+    border-radius: 8px;
+    padding: 15px;
+    min-height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.preview-section h6 {
+    color: #495057;
+    margin-bottom: 5px;
+}
+
+.solution-area {
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    padding: 15px;
+    margin-top: 20px;
+}
+
+.hints-area {
+    margin-top: 15px;
+}
+
+.steps-container {
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+.step {
+    background-color: white;
+    border-radius: 5px;
+    animation: slideIn 0.3s ease-in;
+}
+
+.answer-validation {
+    margin-top: 20px;
+    padding: 15px;
+    border-radius: 8px;
+    border: 2px solid #dee2e6;
+}
+
+.answer-validation.correct {
+    background-color: #d4edda;
+    border-color: #28a745;
+}
+
+.answer-validation.incorrect {
+    background-color: #f8d7da;
+    border-color: #dc3545;
+}
+
+.answer-validation.partial {
+    background-color: #fff3cd;
+    border-color: #ffc107;
+}
+
+.answer-input-group {
+    margin-top: 15px;
+}
+
+.answer-preview {
+    background-color: white;
+    border: 1px solid #ced4da;
+    border-radius: 5px;
+    padding: 10px;
+    min-height: 40px;
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    75% { transform: translateX(5px); }
+}
+
+.shake {
+    animation: shake 0.5s ease-in-out;
+}
+
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+.bounce {
+    animation: bounce 0.6s ease-in-out;
+}
+
+.progress {
+    background-color: #e9ecef;
+    border-radius: 10px;
+}
+
+.progress-bar {
+    background: linear-gradient(90deg, #28a745, #20c997);
+    border-radius: 10px;
+    transition: width 0.6s ease;
+}
+
+.accordion-button {
+    background-color: #fff;
+    border: none;
+}
+
+.accordion-button:not(.collapsed) {
+    background-color: #e3f2fd;
+    color: #1976d2;
+}
+
+.input-group-text {
+    background-color: #e3f2fd;
+    border-color: #bbdefb;
+    color: #1976d2;
+    font-weight: bold;
+}
+
+.btn-success {
+    background: linear-gradient(135deg, #28a745, #20c997);
+    border: none;
+    border-radius: 8px;
+}
+
+.btn-info {
+    background: linear-gradient(135deg, #17a2b8, #138496);
+    border: none;
+    border-radius: 8px;
+}
+
+.btn-warning {
+    background: linear-gradient(135deg, #ffc107, #e0a800);
+    border: none;
+    border-radius: 8px;
+    color: #212529;
+}
+
+.btn-danger {
+    background: linear-gradient(135deg, #dc3545, #c82333);
+    border: none;
+    border-radius: 8px;
+}
+
+.btn-secondary {
+    background: linear-gradient(135deg, #6c757d, #5a6268);
+    border: none;
+    border-radius: 8px;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+    transition: transform 0.2s ease;
+}
+
+.validation-feedback {
+    margin-top: 10px;
+    padding: 10px;
+    border-radius: 5px;
+    font-weight: 500;
+}
+
+.validation-feedback.success {
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+}
+
+.validation-feedback.error {
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+}
+
+.validation-feedback.warning {
+    background-color: #fff3cd;
+    color: #856404;
+    border: 1px solid #ffeaa7;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .math-interface {
+        padding: 10px;
+    }
+    
+    .col-md-6 {
+        margin-bottom: 20px;
+    }
+    
+    #calculator {
+        height: 400px;
+    }
+}
