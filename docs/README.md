@@ -184,7 +184,7 @@ Products:   x*sin(x), 2*x^3, x*e^x
 Fractions:  1/x, x/(x^2+1), (x+1)/(x-1)
 ```
 
-## **Quick Start Examples**
+### **Quick Start Examples**
 Try these functions to get started:
 
 | Function | Technique | Difficulty |
@@ -197,9 +197,3 @@ Try these functions to get started:
 ## 📄 **License**
 
 This project is open source and available under the [MIT License](LICENSE).
-
----
-
-**Built with ❤️ for mathematics education**
-
-*Integral Explorer - Making calculus integration accessible, interactive, and enjoyable!*
