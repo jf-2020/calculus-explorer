@@ -1,18 +1,18 @@
 # Integral Explorer 🧮
 
-A modern, interactive web application for calculus integration practice, combining a MathGPT-like educational interface with Desmos graphing capabilities.
+An interactive web application for calculus integration practice.
 
 ## 🌟 **Overview**
 
 Integral Explorer is an educational platform designed to help students learn and practice calculus integration techniques through interactive problem-solving. The application features a split-screen design with a step-by-step integration assistant on the left and a powerful Desmos graphing calculator on the right.
 
-## 🚀 **Live Demo**
+## 🚀 **Getting Started**
 
 Open `index.html` in your web browser to start using the application immediately - no installation required!
 
 ## ✨ **Key Features**
 
-### **🧠 MathGPT-like Integration Assistant**
+### **🧠 Integration Assistant**
 - **Smart Function Analysis**: Automatically determines the best integration technique
 - **Live LaTeX Preview**: Real-time mathematical expression rendering using MathJax
 - **Step-by-Step Guidance**: Progressive hints without giving direct answers
@@ -146,28 +146,6 @@ integral-explorer/
 - **Accessible**: Screen reader compatible
 - **Fast Loading**: Optimized assets and minimal dependencies
 
-## 🚀 **Getting Started**
-
-### **Prerequisites**
-- Modern web browser (Chrome, Firefox, Safari, Edge)
-- Internet connection (for CDN resources)
-- No server or build process required
-
-### **Installation**
-1. **Clone or Download** the repository
-2. **Open** `index.html` in your web browser
-3. **Start Learning** - no additional setup needed!
-
-### **Quick Start Examples**
-Try these functions to get started:
-
-| Function | Technique | Difficulty |
-|----------|-----------|------------|
-| `x^2` | Power Rule | Easy |
-| `sin(x)` | Trigonometric | Medium |
-| `x*e^x` | Integration by Parts | Hard |
-| `2x/(x^2 + 1)` | U-Substitution | Medium |
-
 ## 🔧 **Configuration**
 
 ### **MathJax Settings**
@@ -206,72 +184,19 @@ Products:   x*sin(x), 2*x^3, x*e^x
 Fractions:  1/x, x/(x^2+1), (x+1)/(x-1)
 ```
 
-## 🎓 **Educational Benefits**
+## **Quick Start Examples**
+Try these functions to get started:
 
-### **🧠 Cognitive Development**
-- **Problem-Solving Skills**: Step-by-step analytical thinking
-- **Pattern Recognition**: Identifying integration techniques
-- **Mathematical Reasoning**: Understanding why methods work
-- **Self-Assessment**: Immediate feedback and correction
-
-### **📖 Learning Approach**
-- **Constructivist**: Students build understanding through guided discovery
-- **Adaptive**: Personalized hints based on student responses
-- **Multimodal**: Visual, textual, and interactive learning
-- **Gamified**: Progress tracking and celebration elements
-
-## 🔮 **Future Enhancements**
-
-### **Planned Features**
-- [ ] **Problem History**: Save and review past problems
-- [ ] **Difficulty Levels**: Beginner, intermediate, advanced modes
-- [ ] **More Techniques**: Trigonometric substitution, improper integrals
-- [ ] **Performance Analytics**: Track learning progress over time
-- [ ] **Collaborative Features**: Share problems and solutions
-- [ ] **Mobile App**: Native iOS/Android applications
-
-### **Technical Improvements**
-- [ ] **Offline Support**: Service worker for offline functionality
-- [ ] **Advanced Parsing**: More sophisticated math expression parsing
-- [ ] **Custom Themes**: User-customizable interface themes
-- [ ] **Accessibility**: Enhanced screen reader support
-- [ ] **API Integration**: Connect with learning management systems
-
-## 🤝 **Contributing**
-
-We welcome contributions! Here's how you can help:
-
-### **Development Setup**
-1. Fork the repository
-2. Make your changes
-3. Test thoroughly
-4. Submit a pull request
-
-### **Areas for Contribution**
-- **New Integration Techniques**: Add support for more methods
-- **UI/UX Improvements**: Enhance the user interface
-- **Bug Fixes**: Report and fix issues
-- **Documentation**: Improve guides and examples
-- **Testing**: Add automated tests
+| Function | Technique | Difficulty |
+|----------|-----------|------------|
+| `x^2` | Power Rule | Easy |
+| `sin(x)` | Trigonometric | Medium |
+| `x*e^x` | Integration by Parts | Hard |
+| `2x/(x^2 + 1)` | U-Substitution | Medium |
 
 ## 📄 **License**
 
 This project is open source and available under the [MIT License](LICENSE).
-
-## 🙏 **Acknowledgments**
-
-- **MathJax** for beautiful mathematical typesetting
-- **Desmos** for the powerful graphing calculator API
-- **Bootstrap** for responsive UI components
-- **Bootstrap Icons** for clean iconography
-
-## 📞 **Support**
-
-Having issues or questions? 
-
-- **📧 Email**: [Your contact email]
-- **🐛 Issues**: [GitHub Issues Page]
-- **💬 Discussions**: [GitHub Discussions]
 
 ---
 
