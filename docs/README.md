@@ -32,16 +32,6 @@ Open `index.html` in your web browser to start using the application immediately
 
 ## 🛠️ **Technical Implementation**
 
-### **📁 Project Structure**
-```
-integral-explorer/
-├── index.html              # Main HTML structure
-├── styles.css              # Base website styling
-├── math-interface.css      # Math interface specific styles
-├── integration-assistant.js # Core JavaScript functionality
-└── README.md               # Project documentation
-```
-
 ### **🏗️ Architecture**
 - **Separation of Concerns**: Clean separation of HTML, CSS, and JavaScript
 - **Modular CSS**: Separate stylesheets for different components
