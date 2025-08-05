@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FAQs - Calculus Explorer</title>
+    <title>FAQs - Integral Explorer</title>
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Bootstrap Icons for hamburger menu -->
@@ -62,7 +62,7 @@
                         <h1 class="display-4 text-primary mb-3">
                             <i class="bi bi-question-circle me-3"></i>Frequently Asked Questions
                         </h1>
-                        <p class="lead text-muted">Everything you need to know about using Calculus Explorer</p>
+                        <p class="lead text-muted">Everything you need to know about using Integral Explorer</p>
                     </div>
 
                     <!-- FAQ Accordion -->
@@ -71,11 +71,11 @@
                         <!-- Getting Started -->
                         <div class="accordion-item">
                             <h2 class="accordion-header">
-                                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faq1" aria-expanded="true">
-                                    <i class="bi bi-rocket me-2"></i>How do I get started with Calculus Explorer?
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq1">
+                                    <i class="bi bi-rocket me-2"></i>How do I get started with Integral Explorer?
                                 </button>
                             </h2>
-                            <div id="faq1" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
+                            <div id="faq1" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
                                 <div class="accordion-body">
                                     <p>Getting started is simple:</p>
                                     <ol>
@@ -99,7 +99,7 @@
                             </h2>
                             <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
                                 <div class="accordion-body">
-                                    <p>Calculus Explorer accepts various mathematical notation formats:</p>
+                                    <p>Integral Explorer accepts various mathematical notation formats:</p>
                                     <div class="table-responsive">
                                         <table class="table table-striped">
                                             <thead>
@@ -141,7 +141,7 @@
                         <div class="accordion-item">
                             <h2 class="accordion-header">
                                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq3">
-                                    <i class="bi bi-gear me-2"></i>What integration techniques does Calculus Explorer support?
+                                    <i class="bi bi-gear me-2"></i>What integration techniques does Integral Explorer support?
                                 </button>
                             </h2>
                             <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
@@ -259,25 +259,25 @@
                                             </thead>
                                             <tbody>
                                                 <tr class="table-success">
-                                                    <td><strong>Exact Match</strong></td>
+                                                    <td><strong>✅ Exact</strong></td>
                                                     <td><i class="bi bi-check-circle-fill text-success"></i></td>
-                                                    <td>Perfect answer</td>
+                                                    <td>Perfect match</td>
                                                     <td>"Perfect! Your answer is exactly correct."</td>
                                                 </tr>
                                                 <tr class="table-info">
-                                                    <td><strong>Equivalent</strong></td>
+                                                    <td><strong>🔄 Equivalent</strong></td>
                                                     <td><i class="bi bi-arrow-repeat text-info"></i></td>
                                                     <td>Mathematically same</td>
                                                     <td>"Correct! Your answer is mathematically equivalent."</td>
                                                 </tr>
                                                 <tr class="table-warning">
-                                                    <td><strong>Partial Credit</strong></td>
+                                                    <td><strong>⚠️ Partial</strong></td>
                                                     <td><i class="bi bi-exclamation-triangle text-warning"></i></td>
                                                     <td>Close with issues</td>
                                                     <td>"Almost! Don't forget the constant of integration (+C)."</td>
                                                 </tr>
                                                 <tr class="table-danger">
-                                                    <td><strong>Incorrect</strong></td>
+                                                    <td><strong>❌ Incorrect</strong></td>
                                                     <td><i class="bi bi-x-circle text-danger"></i></td>
                                                     <td>Wrong answer</td>
                                                     <td>"Not quite right. Check your work and try again!"</td>
@@ -291,6 +291,13 @@
                                         <li>➕➖ Sign errors (positive/negative mistakes)</li>
                                         <li>🔢 Coefficient issues (wrong numerical factors)</li>
                                         <li>📝 Different but equivalent expression formats</li>
+                                    </ul>
+                                    <p><strong>📈 Attempt Management:</strong></p>
+                                    <ul>
+                                        <li><strong>3-Try System:</strong> Maximum of 3 attempts per problem</li>
+                                        <li><strong>Progressive Feedback:</strong> More specific hints after each attempt</li>
+                                        <li><strong>Solution Reveal:</strong> Shows correct answer after max attempts</li>
+                                        <li><strong>Encouragement:</strong> Positive reinforcement throughout</li>
                                     </ul>
                                 </div>
                             </div>
@@ -494,115 +501,13 @@
                             </div>
                         </div>
 
-                        <!-- Educational Benefits -->
-                        <div class="accordion-item">
-                            <h2 class="accordion-header">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq9">
-                                    <i class="bi bi-mortarboard me-2"></i>How does Calculus Explorer help me learn better?
-                                </button>
-                            </h2>
-                            <div id="faq9" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
-                                <div class="accordion-body">
-                                    <p>Calculus Explorer uses proven educational methodologies:</p>
-                                    
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <div class="card h-100">
-                                                <div class="card-header bg-primary text-white">
-                                                    <h6 class="mb-0"><i class="bi bi-brain me-1"></i>Cognitive Benefits</h6>
-                                                </div>
-                                                <div class="card-body">
-                                                    <ul>
-                                                        <li>🧩 <strong>Problem-Solving Skills:</strong> Step-by-step analytical thinking</li>
-                                                        <li>🔍 <strong>Pattern Recognition:</strong> Identifying integration techniques</li>
-                                                        <li>💡 <strong>Mathematical Reasoning:</strong> Understanding why methods work</li>
-                                                        <li>📊 <strong>Self-Assessment:</strong> Immediate feedback and correction</li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <div class="card h-100">
-                                                <div class="card-header bg-success text-white">
-                                                    <h6 class="mb-0"><i class="bi bi-book me-1"></i>Learning Approach</h6>
-                                                </div>
-                                                <div class="card-body">
-                                                    <ul>
-                                                        <li>🏗️ <strong>Constructivist:</strong> Build understanding through guided discovery</li>
-                                                        <li>🎯 <strong>Adaptive:</strong> Personalized hints based on your responses</li>
-                                                        <li>👀 <strong>Multimodal:</strong> Visual, textual, and interactive learning</li>
-                                                        <li>🎮 <strong>Gamified:</strong> Progress tracking and celebration elements</li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    
-                                    <div class="alert alert-info mt-3">
-                                        <h6><i class="bi bi-star me-1"></i>Research-Backed Features:</h6>
-                                        <p class="mb-0">Our platform incorporates <strong>Socratic questioning</strong>, <strong>immediate feedback loops</strong>, and <strong>visual learning</strong> - all proven to enhance mathematical understanding and retention.</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Future Features -->
-                        <div class="accordion-item">
-                            <h2 class="accordion-header">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq10">
-                                    <i class="bi bi-rocket-takeoff me-2"></i>What new features are coming soon?
-                                </button>
-                            </h2>
-                            <div id="faq10" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
-                                <div class="accordion-body">
-                                    <p>We're constantly improving Calculus Explorer! Here's what's on our roadmap:</p>
-                                    
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <h6><i class="bi bi-calendar-plus me-1"></i>Coming Soon:</h6>
-                                            <ul>
-                                                <li>📚 <strong>Problem History:</strong> Save and review past problems</li>
-                                                <li>🎚️ <strong>Difficulty Levels:</strong> Beginner, intermediate, advanced modes</li>
-                                                <li>📈 <strong>Performance Analytics:</strong> Track your learning progress</li>
-                                                <li>🎨 <strong>Custom Themes:</strong> Personalize your interface</li>
-                                            </ul>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <h6><i class="bi bi-stars me-1"></i>Future Plans:</h6>
-                                            <ul>
-                                                <li>🔧 <strong>More Techniques:</strong> Trigonometric substitution, improper integrals</li>
-                                                <li>👥 <strong>Collaborative Features:</strong> Share problems and solutions</li>
-                                                <li>📱 <strong>Mobile App:</strong> Native iOS/Android applications</li>
-                                                <li>🌐 <strong>Offline Support:</strong> Work without internet connection</li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                    
-                                    <div class="alert alert-primary">
-                                        <h6><i class="bi bi-envelope me-1"></i>Want to Contribute?</h6>
-                                        <p class="mb-0">Have ideas for new features? Found a bug? We'd love to hear from you! This is an open-source project, and community contributions are always welcome.</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
-
-                    <!-- Call to Action -->
-                    <div class="text-center mt-5">
-                        <div class="card bg-light">
-                            <div class="card-body">
-                                <h5 class="card-title">Ready to Start Learning?</h5>
-                                <p class="card-text">Now that you know how to use Calculus Explorer, it's time to practice your integration skills!</p>
-                                <a href="index.html" class="btn btn-primary btn-lg">
-                                    <i class="bi bi-calculator me-2"></i>Start Practicing Integration
-                                </a>
-                            </div>
-                        </div>
                     </div>
                 </div>
             </div>
         </div>
+        
+        <!-- Bottom spacing to match top spacing -->
+        <div class="mb-5"></div>
     </main>
 
     <!-- Footer -->
