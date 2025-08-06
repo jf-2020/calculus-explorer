@@ -13,7 +13,7 @@ Open `index.html` in your web browser to start using the application immediately
 ## ✨ **Key Features**
 
 ### **🧠 Integration Assistant**
-- **Smart Function Analysis**: Automatically determines the best integration technique
+- **Function Analysis**: Automatically determines the best integration technique
 - **Live LaTeX Preview**: Real-time mathematical expression rendering using MathJax
 - **Step-by-Step Guidance**: Progressive hints without giving direct answers
 - **Answer Validation System**: Comprehensive checking with partial credit and specific feedback
@@ -27,7 +27,7 @@ Open `index.html` in your web browser to start using the application immediately
 ### **🎯 Educational Approach**
 - **Technique-Specific Hints**: Tailored guidance for each integration method
 - **Progressive Learning**: Encourages step-by-step problem solving
-- **Error Analysis**: Smart feedback for common mistakes
+- **Error Analysis**: Comprehensive feedback for common mistakes
 - **Celebration Effects**: Positive reinforcement for correct answers
 
 ## 🛠️ **Technical Implementation**
@@ -74,7 +74,7 @@ Open `index.html` in your web browser to start using the application immediately
 - **Difficulty**: Hard
 - **Method**: Decomposition into simpler fractions
 
-## 💡 **Smart Hint System**
+## 💡 **Hint System**
 
 ### **Adaptive Guidance**
 - **Function Analysis**: Determines optimal integration approach
@@ -103,7 +103,7 @@ Open `index.html` in your web browser to start using the application immediately
 | **⚠️ Partial** | Close with issues | "Almost! Don't forget the constant of integration (+C)." |
 | **❌ Incorrect** | Wrong answer | "Not quite right. Check your work and try again!" |
 
-### **🔍 Smart Error Detection**
+### **🔍 Error Detection**
 - **Missing Constant**: Detects missing `+C`
 - **Sign Errors**: Identifies positive/negative mistakes  
 - **Coefficient Issues**: Recognizes wrong numerical factors

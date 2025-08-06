@@ -6,20 +6,11 @@
 (function() {
     'use strict';
 
-    // =============================================================================
-    // CONFIGURATION
-    // =============================================================================
-    
-    const AppConfig = {
-        validation: {
-            maxAttempts: 3,
-            enablePartialCredit: true
-        },
-        ui: {
-            animationDuration: 600,
-            enableCelebrations: true
-        },
-        techniques: {
+    // Configuration constants
+    const CONFIG = {
+        MAX_ATTEMPTS: 3,
+        ANIMATION_DURATION: 600,
+        TECHNIQUES: {
             power: { name: 'Power Rule', difficulty: 'Easy' },
             substitution: { name: 'U-Substitution', difficulty: 'Medium' },
             parts: { name: 'Integration by Parts', difficulty: 'Hard' },
@@ -29,8 +20,123 @@
     };
 
     // =============================================================================
-    // MATH UTILITIES
+    // UTILITY FUNCTIONS
     // =============================================================================
+    
+    const Utils = {
+        // DOM helper functions
+        getElement: (id) => document.getElementById(id),
+        
+        updateElement: (id, content, display = null) => {
+            const element = Utils.getElement(id);
+            if (element) {
+                if (content) element.innerHTML = content;
+                if (display !== null) element.style.display = display;
+            }
+            return element;
+        },
+        
+        toggleButton: (id, enabled, text = null) => {
+            const btn = Utils.getElement(id);
+            if (btn) {
+                btn.disabled = !enabled;
+                if (text) btn.innerHTML = text;
+            }
+        },
+        
+        showAlert: (type, title, message) => `
+            <i class="bi bi-${type === 'success' ? 'check-circle-fill text-success' : 
+                             type === 'error' ? 'x-circle-fill text-danger' : 
+                             type === 'warning' ? 'exclamation-triangle-fill text-warning' : 
+                             'info-circle-fill text-info'} me-2"></i>
+            <strong>${title}:</strong> ${message}
+        `,
+        
+        // Animation helper
+        addBounceEffect: (selector) => {
+            const element = document.querySelector(selector);
+            if (element) {
+                element.classList.add('bounce');
+                setTimeout(() => element.classList.remove('bounce'), CONFIG.ANIMATION_DURATION);
+            }
+        }
+    };
+    
+    // =============================================================================
+    // TECHNIQUE DATA
+    // =============================================================================
+    
+    const TECHNIQUE_DATA = {
+        power: {
+            name: 'Power Rule', 
+            difficulty: 'Easy',
+            pattern: /^[+-]?\d*x?\^?\d*([+-]\d*x?\^?\d*)*$/,
+            description: 'This is a polynomial function. Use the power rule.',
+            hints: [
+                "Look at each term in your polynomial. What power of x does each term have?",
+                "Remember: ∫x^n dx = x^(n+1)/(n+1) + C, where n ≠ -1",
+                "Don't forget to add the constant of integration (+C) at the end!"
+            ],
+            answers: {
+                'x': 'x^2/2', 'x^2': 'x^3/3', 'x^3': 'x^4/4', 
+                '1': 'x', '2x': 'x^2', '3x^2': 'x^3'
+            }
+        },
+        trig: {
+            name: 'Trigonometric Integration', 
+            difficulty: 'Medium',
+            pattern: /sin\(|cos\(|tan\(/,
+            description: 'This involves trigonometric functions. Use basic trig integration rules.',
+            hints: [
+                "What are the derivatives of basic trigonometric functions?",
+                "Remember: d/dx[sin(x)] = cos(x) and d/dx[cos(x)] = -sin(x)",
+                "Integration is the reverse of differentiation!"
+            ],
+            answers: {
+                'sin(x)': '-cos(x)', 'cos(x)': 'sin(x)', 'tan(x)': '-ln|cos(x)|'
+            }
+        },
+        exponential: {
+            name: 'Exponential Integration', 
+            difficulty: 'Medium',
+            pattern: /e\^/,
+            description: 'This is an exponential function. Use exponential integration rules.',
+            hints: [
+                "What is special about the function e^x when you differentiate it?",
+                "Remember: d/dx[e^x] = e^x",
+                "The integral of e^x is also e^x!"
+            ],
+            answers: {
+                'e^x': 'e^x', '2e^x': '2e^x'
+            }
+        },
+        logarithmic: {
+            name: 'Logarithmic Integration', 
+            difficulty: 'Medium',
+            pattern: /1\/x|ln/,
+            description: 'This involves logarithmic functions or 1/x.',
+            hints: [
+                "What function has derivative 1/x?",
+                "Remember: d/dx[ln|x|] = 1/x",
+                "For 1/x, the antiderivative is ln|x|"
+            ],
+            answers: {
+                '1/x': 'ln|x|'
+            }
+        },
+        substitution: {
+            name: 'U-Substitution', 
+            difficulty: 'Medium',
+            pattern: /.*/,  // default fallback
+            description: 'Try u-substitution or analyze the function structure.',
+            hints: [
+                "Look for a function and its derivative within the integral.",
+                "Choose u to be the 'inner function' and find du.",
+                "Substitute to simplify the integral before solving."
+            ],
+            answers: {}
+        }
+    };
     
     class MathUtils {
         static convertToLatex(input) {
@@ -122,105 +228,39 @@
         determineTechnique(func) {
             const f = func.toLowerCase().replace(/\s/g, '');
             
-            if (f.match(/^x\^?\d*$/) || f.match(/^\d*x\^?\d*$/) || f.match(/^[+-]?\d*x?\^?\d*([+-]\d*x?\^?\d*)*$/)) {
-                return {
-                    technique: 'power',
-                    description: 'This is a polynomial function. Use the power rule.',
-                    difficulty: 'Easy'
-                };
-            } else if (f.includes('sin') || f.includes('cos') || f.includes('tan')) {
-                return {
-                    technique: 'trig',
-                    description: 'This contains trigonometric functions.',
-                    difficulty: 'Medium'
-                };
-            } else if (f.includes('e^') || f.includes('ln')) {
-                if (f.includes('*')) {
+            // Test each technique pattern in order of specificity
+            for (const [key, data] of Object.entries(TECHNIQUE_DATA)) {
+                if (key !== 'substitution' && data.pattern.test(f)) {
                     return {
-                        technique: 'parts',
-                        description: 'This looks like it needs integration by parts.',
-                        difficulty: 'Hard'
-                    };
-                } else {
-                    return {
-                        technique: 'substitution',
-                        description: 'This might benefit from u-substitution.',
-                        difficulty: 'Medium'
+                        technique: key,
+                        description: data.description,
+                        difficulty: data.difficulty
                     };
                 }
-            } else {
-                return {
-                    technique: 'substitution',
-                    description: 'Try u-substitution or analyze the function structure.',
-                    difficulty: 'Medium'
-                };
             }
+            
+            // Default to substitution if no pattern matches
+            return {
+                technique: 'substitution',
+                description: TECHNIQUE_DATA.substitution.description,
+                difficulty: TECHNIQUE_DATA.substitution.difficulty
+            };
         }
 
         calculateCorrectAnswer(func, technique) {
             const f = func.toLowerCase().replace(/\s/g, '');
+            const techniqueData = TECHNIQUE_DATA[technique];
             
-            if (technique === 'power') {
-                if (f === 'x') return 'x^2/2';
-                if (f === 'x^2') return 'x^3/3';
-                if (f === 'x^3') return 'x^4/4';
-                if (f === '1') return 'x';
-                if (f === '2x') return 'x^2';
-                if (f === '3x^2') return 'x^3';
-            } else if (technique === 'trig') {
-                if (f === 'sin(x)') return '-cos(x)';
-                if (f === 'cos(x)') return 'sin(x)';
-                if (f === 'tan(x)') return '-ln|cos(x)|';
-            } else if (f.includes('e^')) {
-                if (f === 'e^x') return 'e^x';
-                if (f === '2e^x') return '2e^x';
-            } else if (f.includes('ln')) {
-                if (f === '1/x') return 'ln|x|';
+            if (techniqueData && techniqueData.answers[f]) {
+                return techniqueData.answers[f];
             }
             
             return 'Answer depends on technique used';
         }
 
         generateHints() {
-            this.hints = [];
-            
-            switch (this.technique) {
-                case 'power':
-                    this.hints = [
-                        "Look at each term in your polynomial. What power of x does each term have?",
-                        "Remember: ∫x^n dx = x^(n+1)/(n+1) + C, where n ≠ -1",
-                        "Don't forget to add the constant of integration (+C) at the end!"
-                    ];
-                    break;
-                case 'trig':
-                    this.hints = [
-                        "What are the derivatives of basic trigonometric functions?",
-                        "Remember: d/dx[sin(x)] = cos(x) and d/dx[cos(x)] = -sin(x)",
-                        "Integration is the reverse of differentiation!"
-                    ];
-                    break;
-                case 'substitution':
-                    this.hints = [
-                        "Look for a function and its derivative in the integrand.",
-                        "Try setting u equal to the inner function.",
-                        "Don't forget to substitute back after integrating!"
-                    ];
-                    break;
-                case 'parts':
-                    this.hints = [
-                        "Use the LIATE rule to choose u: Logarithmic, Inverse trig, Algebraic, Trigonometric, Exponential",
-                        "Remember: ∫u dv = uv - ∫v du",
-                        "Choose u to be the function that becomes simpler when differentiated."
-                    ];
-                    break;
-                case 'partial':
-                    this.hints = [
-                        "Factor the denominator completely.",
-                        "Set up partial fractions based on the factors.",
-                        "Solve for the unknown coefficients using algebraic methods."
-                    ];
-                    break;
-            }
+            const techniqueData = TECHNIQUE_DATA[this.technique];
+            this.hints = techniqueData ? techniqueData.hints : [];
         }
 
         generateSteps() {
@@ -272,26 +312,18 @@
     // =============================================================================
     
     class AnswerValidator {
-        constructor() {
-            this.maxAttempts = 3;
-        }
-
         validateAnswer(userAnswer, correctAnswer, attempts = 1) {
             if (!userAnswer || !userAnswer.trim()) {
                 return {
-                    isValid: false,
-                    isCorrect: false,
-                    type: 'empty',
-                    message: 'Please enter your answer first!',
-                    feedback: 'error'
+                    isValid: false, isCorrect: false, type: 'empty',
+                    message: 'Please enter your answer first!', feedback: 'error'
                 };
             }
 
             const result = this.checkAnswer(userAnswer, correctAnswer);
             result.attempts = attempts;
-            result.maxAttempts = this.maxAttempts;
-            result.hasMoreAttempts = attempts < this.maxAttempts;
-
+            result.maxAttempts = CONFIG.MAX_ATTEMPTS;
+            result.hasMoreAttempts = attempts < CONFIG.MAX_ATTEMPTS;
             return result;
         }
 
@@ -586,42 +618,28 @@
                 this.updateProgress(100, 'Congratulations! Correct answer!');
                 this.setCheckButtonEnabled(false);
                 this.celebrateSuccess();
-            } else if (this.userAttempts >= this.validator.maxAttempts) {
+            } else if (this.userAttempts >= CONFIG.MAX_ATTEMPTS) {
                 this.showCorrectAnswer();
                 this.setCheckButtonEnabled(false);
             } else {
-                const progressPercentage = Math.min(60 + 15, 90);
-                this.updateProgress(progressPercentage, `Attempt ${this.userAttempts}/${this.validator.maxAttempts} - Try again!`);
+                const progressPercentage = Math.min(60 + (this.userAttempts * 10), 90);
+                this.updateProgress(progressPercentage, `Attempt ${this.userAttempts}/${CONFIG.MAX_ATTEMPTS} - Try again!`);
             }
         }
 
         showValidationResult(result) {
-            const validationArea = document.getElementById('validationArea');
-            const validationMessage = document.getElementById('validationMessage');
+            const validationArea = Utils.getElement('validationArea');
+            const validationMessage = Utils.getElement('validationMessage');
             
             if (validationArea && validationMessage) {
                 validationArea.style.display = 'block';
-                validationArea.className = 'answer-validation';
+                validationArea.className = `answer-validation ${result.isCorrect ? 'correct' : result.type === 'partial' ? 'partial' : 'incorrect'}`;
                 
-                if (result.isCorrect) {
-                    validationArea.classList.add('correct');
-                    validationMessage.innerHTML = `
-                        <i class="bi bi-check-circle-fill text-success me-2"></i>
-                        <strong>Correct!</strong> ${result.message}
-                    `;
-                } else if (result.type === 'partial') {
-                    validationArea.classList.add('partial');
-                    validationMessage.innerHTML = `
-                        <i class="bi bi-exclamation-triangle-fill text-warning me-2"></i>
-                        <strong>Partial Credit:</strong> ${result.message}
-                    `;
-                } else {
-                    validationArea.classList.add('incorrect');
-                    validationMessage.innerHTML = `
-                        <i class="bi bi-x-circle-fill text-danger me-2"></i>
-                        <strong>Try Again:</strong> ${result.message}
-                    `;
-                }
+                validationMessage.innerHTML = Utils.showAlert(
+                    result.isCorrect ? 'success' : result.type === 'partial' ? 'warning' : 'error',
+                    result.isCorrect ? 'Correct!' : result.type === 'partial' ? 'Partial Credit' : 'Try Again',
+                    result.message
+                );
             }
         }
 
@@ -645,16 +663,7 @@
         }
 
         celebrateSuccess() {
-            // Simple celebration - add bounce animation
-            const card = document.querySelector('.math-interface .card');
-            if (card) {
-                card.classList.add('bounce');
-                setTimeout(() => {
-                    card.classList.remove('bounce');
-                }, 600);
-            }
-            
-            // Show confetti
+            Utils.addBounceEffect('.math-interface .card');
             this.showConfetti();
         }
 
@@ -786,13 +795,13 @@
         }
 
         getTechniqueName(technique) {
-            return AppConfig.techniques[technique]?.name || 'Unknown';
+            return TECHNIQUE_DATA[technique]?.name || 'Unknown';
         }
 
         getDifficultyColor(difficulty) {
             const colors = {
                 'Easy': 'bg-success',
-                'Medium': 'bg-warning text-dark',
+                'Medium': 'bg-warning text-dark', 
                 'Hard': 'bg-danger'
             };
             return colors[difficulty] || 'bg-secondary';
