@@ -1,0 +1,24 @@
+{
+  "name": "calculus-explorer",
+  "version": "1.0.0",
+  "description": "Interactive calculus integration practice platform",
+  "main": "index.html",
+  "scripts": {
+    "start": "serve .",
+    "build": "echo 'Static site - no build step required'"
+  },
+  "keywords": [
+    "calculus",
+    "integration",
+    "education",
+    "mathematics",
+    "learning"
+  ],
+  "author": "MathJack",
+  "license": "MIT",
+  "homepage": "https://github.com/jf-2020/calculus-explorer#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jf-2020/calculus-explorer.git"
+  }
+}
